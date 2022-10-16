@@ -11,6 +11,9 @@ namespace Additionapp.Businesslogic
 {
     public static class Addargs
     {
+        /// <summary>
+        /// This extension method helps to add two numbers
+        /// </summary>
         public static double Addition(this AddModel add, double Arg1, double Arg2)
         {
             double Result = 0;

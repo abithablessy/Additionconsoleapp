@@ -10,7 +10,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Additionapp.DAL
-{
+{/// <summary>
+/// Data layer for all database access functions.
+/// </summary>
     public class AddDAL
     {
         private string _connectionstring;
@@ -18,10 +20,15 @@ namespace Additionapp.DAL
         {
             _connectionstring = iconfig.GetConnectionString("Default");
         }
+        /// <summary>
+        /// To get the list of saved calculations from database.
+        /// </summary>
+
         public List<Dbaddcalcmodel> Getlistofcalc()
-        { 
+        {
             List<Dbaddcalcmodel> addcalclist = new List<Dbaddcalcmodel>();
-            try {
+            try
+            {
                 using (SqlConnection con = new SqlConnection(_connectionstring))
                 {
                     SqlCommand cmd = new SqlCommand("Getaddcalclist", con);
@@ -32,11 +39,11 @@ namespace Additionapp.DAL
                     {
                         addcalclist.Add(new Dbaddcalcmodel
                         {
-                            Id=Convert.ToInt32(reader[0]),
-                            Arg1= Convert.ToDouble(reader[1]),
+                            Id = Convert.ToInt32(reader[0]),
+                            Arg1 = Convert.ToDouble(reader[1]),
                             Arg2 = Convert.ToDouble(reader[2]),
                             Result = Convert.ToDouble(reader[3])
-                          
+
 
                         });
                     }
@@ -45,10 +52,14 @@ namespace Additionapp.DAL
             catch (Exception e)
             {
                 Log.Information("Getlistofcalc log: " + e.Message);
-               
+
             }
             return addcalclist;
         }
+        /// <summary>
+        /// To save the numbers and their result in to the database.
+        /// </summary>
+
         public string Adddatacalc(AddModel am)
         {
             string success = "Data Saved Successfully";
@@ -65,7 +76,7 @@ namespace Additionapp.DAL
                     con.Open();
                     int count = (int)cmd.ExecuteScalar();
                     con.Close();
-                    if(count==0)
+                    if (count == 0)
                     {
                         SqlCommand ncmd = new SqlCommand("Insertaddcalc", con);
                         ncmd.CommandType = CommandType.StoredProcedure;
@@ -76,15 +87,15 @@ namespace Additionapp.DAL
                         nparam = ncmd.Parameters.Add("@result", SqlDbType.Float);
                         nparam.Value = am.Result;
                         con.Open();
-                        int successresult=ncmd.ExecuteNonQuery();
+                        int successresult = ncmd.ExecuteNonQuery();
                         con.Close();
-                        if(successresult==0)
+                        if (successresult == 0)
                         { success = "There is an issue in data saving. Please try again later."; }
 
                     }
-                   
+
                 }
-                
+
             }
             catch (Exception e)
             {

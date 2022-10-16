@@ -7,25 +7,27 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Additionapp.Models
-{
+{/// <summary>
+/// This helps to do the user input validation.
+/// </summary>
     public class Inputmodel
     {
-      
+
         public string Inp { get; set; }
         public double GetuserInput(string inp)
         {
             double n = 0;
             try
             {
-                
+
                 bool isNumeric = double.TryParse(inp, out n);
                 while (!isNumeric)
                 {
                     Console.WriteLine("Please enter some numbers");
                     inp = Console.ReadLine();
-                    isNumeric= double.TryParse(inp, out n);
+                    isNumeric = double.TryParse(inp, out n);
                 }
-               
+
             }
             catch (Exception e)
             {
@@ -35,17 +37,19 @@ namespace Additionapp.Models
             return n;
         }
     }
+    /* Extension method helps to validate yes or no user input. */
     public static class InputModelexte
     {
         public static string Imexemethod(this Inputmodel im, string Inp)
         {
-            try {
-             while(Inp!="y"&&Inp!="n")
+            try
+            {
+                while (Inp != "y" && Inp != "n")
                 {
                     Console.WriteLine("Please enter y/n");
-                    Inp=Console.ReadLine();
+                    Inp = Console.ReadLine();
                 }
-                
+
             }
             catch (Exception e)
             {
