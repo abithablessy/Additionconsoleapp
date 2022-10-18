@@ -1,0 +1,26 @@
+1. In this application there are three folders i)BusinessLogic ii)DAL iii)Models
+
+Business logic-> The main business logic behind the application.
+
+DAL-> Data layer for all database-related communications
+
+Models-> User inputs and validation.
+
+This way of splitting the files is helpful for more readability and it's easier to reuse the code.
+
+2. I have used the extension method to create an addition method as per instructions. Basically, this extension method helps to extend the functionality of the old class even if we don't
+
+have access to the specific code. It largely helps to enhance the class designs, gives good readability also loosely coupled that's why I have used extension methods in addition and input classes.
+
+3. In this application my goal is to add the two numbers, display the result, save the numbers in the database and display all saved results into the user so I choose "double" datatype to cover all types of numbers.
+
+4. I have used try catch to handle the exceptions and also used serilog to log the error in a file(Additionapp.log). Logging the error helps to troubleshoot the problem easily.
+
+5. I have used MSTest unit tests to test the extension and input methods.
+
+6. I have used a Microsoft SQL server as a data repository. My database contains 2 tables one is to store the values and one is for the error log.
+
+7. I have used stored procedures to save and retrieve list process because stored procedure gives data security and it improves the performance as well.
+
+
+
