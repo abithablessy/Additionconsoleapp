@@ -1,0 +1,3 @@
+Instructions to setup database:
+1. Please run the script file in SQL server to setup the database.
+2. Change the database log in credentials in appsettings.json to connect the application with database. (Path:Additionapp/appsettings.json)
