@@ -20,6 +20,18 @@ namespace Additionappunittest
             Assert.AreEqual(expectedresult, result);
 
         }
+        [TestMethod]
+        public void Input_negnum_string_for_add()
+        {
+            Inputmodel im = new Inputmodel();
+            var stringreader = new StringReader("-5.9");
+            Console.SetIn(stringreader);
+            var readstring = Console.ReadLine();
+            var result = im.GetuserInput(readstring);
+            var expectedresult = -5.9;
+            Assert.AreEqual(expectedresult, result);
+
+        }
 
     }
 }
