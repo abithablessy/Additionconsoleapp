@@ -13,8 +13,8 @@ namespace Additionappunittest
         {
           AddModel am= new AddModel();
           var result=am.Addition(10, 15);
-          var Expectedresult = 25;
-          Assert.AreEqual(Expectedresult, result);
+          var expectedresult = 25;
+          Assert.AreEqual(expectedresult, result);
 
         }
         [TestMethod]
@@ -22,8 +22,8 @@ namespace Additionappunittest
         {
             AddModel am = new AddModel();
             var result = am.Addition(-30, 15);
-            var Expectedresult = -15;
-            Assert.AreEqual(Expectedresult, result);
+            var expectedresult = -15;
+            Assert.AreEqual(expectedresult, result);
 
         }
         [TestMethod]
@@ -31,8 +31,8 @@ namespace Additionappunittest
         {
             AddModel am = new AddModel();
             var result = am.Addition(-28, -10);
-            var Expectedresult = -38;
-            Assert.AreEqual(Expectedresult, result);
+            var expectedresult = -38;
+            Assert.AreEqual(expectedresult, result);
 
         }
         [TestMethod]
@@ -40,8 +40,8 @@ namespace Additionappunittest
         {
             AddModel am = new AddModel();
             var result = am.Addition(108, -10);
-            var Expectedresult = 98;
-            Assert.AreEqual(Expectedresult, result);
+            var expectedresult = 98;
+            Assert.AreEqual(expectedresult, result);
 
         }
         [TestMethod]
@@ -49,8 +49,8 @@ namespace Additionappunittest
         {
             AddModel am = new AddModel();
             var result = am.Addition(5.8999, 8.5677);
-            var Expectedresult = 14.468;
-            Assert.AreEqual(Expectedresult, result);
+            var expectedresult = 14.468;
+            Assert.AreEqual(expectedresult, result);
 
         }
         [TestMethod]
@@ -58,10 +58,11 @@ namespace Additionappunittest
         {
             AddModel am = new AddModel();
             var result = am.Addition(100.9999999999, 200.9999999999);
-            var Expectedresult = 302;
-            Assert.AreEqual(Expectedresult, result);
+            var expectedresult = 302;
+            Assert.AreEqual(expectedresult, result);
 
         }
-       
+      
+
     }
 }

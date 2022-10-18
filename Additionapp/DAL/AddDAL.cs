@@ -86,6 +86,8 @@ namespace Additionapp.DAL
                         nparam.Value = am.Arg2;
                         nparam = ncmd.Parameters.Add("@result", SqlDbType.Float);
                         nparam.Value = am.Result;
+                        nparam = ncmd.Parameters.Add("@date", SqlDbType.DateTime);
+                        nparam.Value = DateTime.UtcNow;
                         con.Open();
                         int successresult = ncmd.ExecuteNonQuery();
                         con.Close();
